@@ -62,6 +62,21 @@ set_target_properties(swresample PROPERTIES IMPORTED_LOCATION ${SO_DIR}/libswres
 add_library(swscale SHARED IMPORTED)
 set_target_properties(swscale PROPERTIES IMPORTED_LOCATION ${SO_DIR}/libswscale.so)
 
+add_library(fdk-aac SHARED IMPORTED)
+set_target_properties(fdk-aac PROPERTIES IMPORTED_LOCATION ${SO_DIR}/libfdk-aac.so)
+
+add_library(x264 SHARED IMPORTED)
+set_target_properties(x264 PROPERTIES IMPORTED_LOCATION ${SO_DIR}/libx264.a)
+
+add_library(lame SHARED IMPORTED)
+set_target_properties(lame PROPERTIES IMPORTED_LOCATION ${SO_DIR}/libmp3lame.so)
+
+add_library(ssl SHARED IMPORTED)
+set_target_properties(ssl PROPERTIES IMPORTED_LOCATION ${SO_DIR}/libssl.so)
+
+add_library(crypto SHARED IMPORTED)
+set_target_properties(crypto PROPERTIES IMPORTED_LOCATION ${SO_DIR}/libcrypto.so)
+
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
@@ -76,6 +91,11 @@ target_link_libraries( # Specifies the target library.
         postproc
         swresample
         swscale
+        fdk-aac
+        x264
+        lame
+        ssl
+        crypto
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib}
